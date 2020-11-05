@@ -607,6 +607,11 @@ define([
 
                     function keepGoing() {
                         L_.setLastActivePoint(layer)
+
+                        // emit last active point to parent window
+                        let parentWindow = window.parent;
+                        parentWindow.postMessage(L_.lastActivePoint, 'http://localhost:9000');
+
                         L_.resetLayerFills()
                         layer.setStyle({ fillColor: 'red' })
                         Map_.activeLayer = layer
