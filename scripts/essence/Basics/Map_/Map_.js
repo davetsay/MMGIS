@@ -610,7 +610,8 @@ define([
 
                         // emit last active point to parent window
                         let parentWindow = window.parent;
-                        parentWindow.postMessage(L_.lastActivePoint, 'http://localhost:9000');
+                        // TODO don't post to everyone
+                        parentWindow.postMessage(L_.lastActivePoint, '*');
 
                         L_.resetLayerFills()
                         layer.setStyle({ fillColor: 'red' })
