@@ -268,7 +268,7 @@ define([
                 if (L_.Globe_ != null) L_.Globe_.setLink('off')
             })
 
-            window.addEventListener('message', function (e) {
+            window.addEventListener('message', (e) => {
                 this.resetView(e.data);
             })
 
