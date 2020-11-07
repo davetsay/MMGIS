@@ -269,9 +269,7 @@ define([
             })
 
             window.addEventListener('message', function (e) {
-                const { latitude, longitude, layer } = e.data
-
-                this.map.setView([latitude, longitude])
+                this.resetView(e.data);
             })
 
             //Build the toolbar
