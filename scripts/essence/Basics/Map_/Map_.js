@@ -268,7 +268,7 @@ define([
                 if (L_.Globe_ != null) L_.Globe_.setLink('off')
             })
 
-            Map_.map.on('message', function (e) {
+            window.on('message', function (e) {
                 const { latitude, longitude, layer } = e.data
 
                 this.map.setView([latitude, longitude])
