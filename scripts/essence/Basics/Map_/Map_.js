@@ -269,7 +269,10 @@ define([
             })
 
             window.addEventListener('message', (e) => {
-                this.resetView(e.data);
+                const { lat, lon, zoom } = e.data
+                const latlonzoom = [lat, lon, zoom]
+
+                this.resetView(latlonzoom)
             })
 
             //Build the toolbar
