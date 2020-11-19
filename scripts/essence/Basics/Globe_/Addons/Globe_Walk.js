@@ -192,30 +192,6 @@ define(['three', 'Formulae_', 'Layers_', 'd3'], function (
             return markup
         },
         attachEvents: function () {
-            window.addEventListener('message', (e) => {
-                const { type, lat, lon, zoom, azimuth } = e.data
-
-                if (true) {
-                    if (lat) {
-                        $('#Globe_WalkSettingsLatitudeValue').val(lat)
-                    }
-
-                    if (lon) {
-                        $('#Globe_WalkSettingsLongitudeValue').val(lon)
-                    }
-
-                    if (azimuth) {
-                        $('#Globe_WalkSettingsAzimuthValue').val(azimuth)
-                    }
-                }
-
-                if (!Globe_Walk.G_.wasInitialized) {
-                    $('#Globe_WalkStand').click()
-                }
-
-            });
-
-
             $('#Globe_WalkWalk').click(function () {
                 setCamera(false)
                 $(document).off('keydown', keydownWalkSettings)

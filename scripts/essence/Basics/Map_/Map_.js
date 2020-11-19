@@ -269,10 +269,25 @@ define([
             })
 
             window.addEventListener('message', (e) => {
-                const { lat, lon, zoom } = e.data
-                const latlonzoom = [lat, lon, zoom]
+                const { type, lat, lon, zoom, rot } = e.data
 
-                this.resetView(latlonzoom)
+                this.resetView([lat, lon, zoom])
+
+                if (true) {
+                    if (lat) {
+                        $('#Globe_WalkSettingsLatitudeValue').val(lat)
+                    }
+
+                    if (lon) {
+                        $('#Globe_WalkSettingsLongitudeValue').val(lon)
+                    }
+
+                    if (azimuth) {
+                        $('#Globe_WalkSettingsAzimuthValue').val(azimuth)
+                    }
+
+                    this.setPlayerArrow(lon, lat, rot)
+                }
             })
 
             //Build the toolbar
