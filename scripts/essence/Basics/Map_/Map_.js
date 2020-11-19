@@ -269,21 +269,23 @@ define([
             })
 
             window.addEventListener('message', (e) => {
-                const { type, lat, lon, zoom, rot } = e.data
+                let { type, lat, lon, zoom, rot } = e.data
 
-                this.resetView([lat, lon, zoom])
+                if (type === 'featureLocation') {
+                    this.resetView([lat, lon, zoom])
+                }
 
-                if (true) {
-                    if (lat) {
-                        $('#Globe_WalkSettingsLatitudeValue').val(lat)
+                if (type === 'roverLocationOrientation') {
+                    if (lat !== undefined) {
+                        $('#Globe_WalkSettingsLatitudeValue').val(parseFloat(lat))
                     }
 
-                    if (lon) {
-                        $('#Globe_WalkSettingsLongitudeValue').val(lon)
+                    if (lon !== undefined) {
+                        $('#Globe_WalkSettingsLongitudeValue').val(parseFloat(lon))
                     }
 
-                    if (azimuth) {
-                        $('#Globe_WalkSettingsAzimuthValue').val(azimuth)
+                    if (rot !== undefined) {
+                        $('#Globe_WalkSettingsAzimuthValue').val(parseFloat(rot))
                     }
 
                     this.setPlayerArrow(lon, lat, rot)
