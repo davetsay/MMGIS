@@ -276,19 +276,7 @@ define([
                 }
 
                 if (type === 'roverLocationOrientation') {
-                    if (lat !== undefined) {
-                        $('#Globe_WalkSettingsLatitudeValue').val(parseFloat(lat))
-                    }
-
-                    if (lon !== undefined) {
-                        $('#Globe_WalkSettingsLongitudeValue').val(parseFloat(lon))
-                    }
-
-                    if (rot !== undefined) {
-                        $('#Globe_WalkSettingsAzimuthValue').val(parseFloat(rot))
-                    }
-
-                    this.setPlayerArrow(lon, lat, rot)
+                    this.setPlayerArrow(parseFloat(lon), parseFloat(lat), parseFloat(rot))
                 }
             })
 
